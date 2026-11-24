@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>منصة الشروحات — Murad Alzaaq</title>
+<meta name="description" content="شروحات مواد بالصوت والصورة: الدوائر الكهربائية، مختبر بايثون">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2313213A'/><path d='M18 3 8 18h7l-2 11 11-16h-7z' fill='%23FFD43B'/></svg>">
+<style>
+:root{--bg:#0B1426;--bg2:#101D35;--card:#14233F;--line:rgba(255,255,255,.09);--tx:#EAF1FB;--mut:#9FB3CC;--ac:#FFD43B;--bl:#4DABF7;--gr:#3DDC97;--rd:#FF8A80}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;background:radial-gradient(ellipse 1400px 900px at 15% -10%,#1B3A6B 0%,var(--bg) 60%,#070D1A 100%) no-repeat,#070D1A;color:var(--tx);min-height:100vh;line-height:1.7}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:10px 18px;background:rgba(11,20,38,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;white-space:nowrap}
+.brand small{font-weight:400;color:var(--mut);font-size:13px}
+.logo{width:32px;height:32px}
+.spacer{flex:1}
+.credit{flex-shrink:0;display:flex;align-items:center;gap:12px;height:46px;padding:0 22px 0 6px;min-width:250px;border-radius:999px;background:linear-gradient(#1B2C4A,#16243D) padding-box,linear-gradient(90deg,#FFD43B,#4DABF7) border-box;border:1.5px solid transparent;white-space:nowrap;box-shadow:0 0 22px -6px rgba(77,171,247,.45)}
+.credit .mono{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;color:#13213A;background:linear-gradient(135deg,#FFD43B,#4DABF7)}
+.credit .who{display:flex;flex-direction:column;line-height:1.15;text-align:left}
+.credit .who small{font-size:9.5px;font-weight:600;color:var(--mut);letter-spacing:1.6px}
+.credit .who b{font-size:18px;font-weight:800;letter-spacing:.6px;background:linear-gradient(90deg,#fff 10%,#FFD43B 55%,#4DABF7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.share{border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--tx);border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;cursor:pointer}
+.share:hover{background:rgba(255,255,255,.12)}
+main{max-width:1180px;margin:0 auto;padding:26px 18px 60px}
+.crumbs{display:flex;gap:8px;align-items:center;color:var(--mut);font-size:14px;margin-bottom:14px;flex-wrap:wrap}
+.crumbs a{color:var(--bl)}
+.hero{padding:30px 0 22px}
+.hero h1{font-size:clamp(26px,4.4vw,44px);font-weight:900;line-height:1.3}
+.hero h1 span{background:linear-gradient(90deg,var(--ac),var(--bl));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:17px;margin-top:8px;max-width:720px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid var(--line);transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer;overflow:hidden}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,212,59,.45);box-shadow:0 20px 40px -24px rgba(0,0,0,.8)}
+.card .ic{font-size:34px;width:60px;height:60px;display:grid;place-items:center;border-radius:18px;background:rgba(255,255,255,.06)}
+.card h3{font-size:20px;font-weight:800}
+.card p{color:var(--mut);font-size:14.5px}
+.card .meta{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:12.5px;padding:3px 10px;border-radius:999px;background:rgba(77,171,247,.14);color:#BFE0FF;direction:ltr}
+.chip.y{background:rgba(255,212,59,.15);color:#FFE58A}.chip.g{background:rgba(61,220,151,.15);color:#A8F0CF}
+.card.soon{opacity:.55;cursor:default}.card.soon:hover{transform:none;border-color:var(--line)}
+.card .glow{position:absolute;inset:auto -40px -60px auto;width:160px;height:160px;border-radius:50%;filter:blur(50px);opacity:.35}
+h2.sec{font-size:22px;margin:30px 0 14px;display:flex;align-items:center;gap:10px}
+h2.sec:before{content:"";width:6px;height:24px;border-radius:4px;background:linear-gradient(var(--ac),var(--bl))}
+/* topic page */
+.tp{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
+.player{border-radius:20px;overflow:hidden;background:#000;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+.player video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.chap{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px;max-height:520px;overflow:auto}
+.chap h4{font-size:15px;color:var(--mut);padding:4px 8px 8px}
+.chap button{display:flex;gap:10px;align-items:center;width:100%;text-align:right;border:0;background:none;color:var(--tx);font:inherit;font-size:14.5px;padding:9px 10px;border-radius:12px;cursor:pointer}
+.chap button:hover{background:rgba(255,255,255,.06)}
+.chap button.on{background:rgba(255,212,59,.13);color:#fff}
+.chap .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:12px;background:rgba(255,255,255,.08);color:var(--mut)}
+.chap button.on .n{background:var(--ac);color:#13213A;font-weight:800}
+.chap .tm{margin-inline-start:auto;color:var(--mut);font-size:12px;direction:ltr}
+.panel{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:18px}
+.panel h3{font-size:19px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.panel ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.panel li{padding-inline-start:22px;position:relative}
+.panel li:before{content:"◆";position:absolute;inset-inline-start:0;color:var(--ac);font-size:11px;top:6px}
+.panel b{color:var(--ac)}
+.given{background:rgba(77,171,247,.1);border:1px dashed rgba(77,171,247,.4);border-radius:14px;padding:10px 14px;color:#CFE6FF;margin-bottom:12px;font-size:15px}
+ol.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:8px}
+ol.steps li{counter-increment:s;padding:10px 14px 10px 14px;padding-inline-start:46px;position:relative;border-radius:12px;background:rgba(255,255,255,.04);font-family:"DejaVu Sans","Segoe UI",sans-serif;font-size:15.5px}
+ol.steps li:before{content:counter(s);position:absolute;inset-inline-start:12px;top:10px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;background:var(--bl);color:#08101F;font-weight:800}
+ol.steps li:last-child{background:rgba(61,220,151,.12);border:1px solid rgba(61,220,151,.35)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.gt{width:100%;border-collapse:collapse}
+.gt td{padding:10px 8px;border-bottom:1px solid var(--line)}
+.gt td:last-child{text-align:left;font-weight:800;color:var(--ac);white-space:nowrap}
+.gt tr:last-child td{border-bottom:0}
+.gt tfoot td{border-top:2px solid var(--ac);color:#fff}
+.q{font-size:16px;margin-bottom:12px}
+.reveal{border:0;cursor:pointer;font:inherit;font-weight:700;padding:10px 18px;border-radius:12px;background:linear-gradient(90deg,var(--ac),#FFB938);color:#13213A}
+.ans{display:none;margin-top:14px}.ans.on{display:block}
+.src{font-size:13px;color:var(--mut);margin-top:10px}
+footer{text-align:center;color:var(--mut);font-size:13px;padding:30px 10px 40px;border-top:1px solid var(--line)}
+footer b{color:var(--ac)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(30px);opacity:0;background:#1B2C4A;border:1px solid var(--line);padding:10px 18px;border-radius:999px;transition:.3s;z-index:50}
+.toast.on{opacity:1;transform:translateX(-50%)}
+@media (max-width:900px){.tp{grid-template-columns:1fr}.chap{max-height:none}.two{grid-template-columns:1fr}}
+@media (max-width:640px){.brand small{display:none}.credit{min-width:0;height:40px;padding:0 12px 0 4px;gap:7px}.credit .mono{width:30px;height:30px;font-size:11px}.credit .who small{font-size:8px;letter-spacing:1px}.credit .who b{font-size:15px}.share .lbl{display:none}main{padding:16px 12px 50px}.panel{padding:16px}}
+@media (max-width:440px){.brand>span{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#/">
+    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#13213A"/><path d="M18 4 8 18h7l-2 10 11-15h-7z" fill="#FFD43B"/></svg>
+    <span>منصة الشروحات <small>· صوت وصورة</small></span>
+  </a>
+  <div class="credit" dir="ltr" title="Designed & developed by Murad Alzaaq">
+    <span class="mono">MA</span>
+    <span class="who"><small>DESIGNED &amp; DEVELOPED BY</small><b>Murad Alzaaq</b></span>
+  </div>
+  <div class="spacer"></div>
+  <button class="share" id="shareBtn">⤴ <span class="lbl">مشاركة</span></button>
+</header>
+<main id="app"></main>
+<footer>إعداد وتطوير: <b>مراد الزعاق</b> · Murad Alzaaq</footer>
+<div class="toast" id="toast"></div>
+<script>
+const TOPICS = [{"slug": "mesh", "title": "تحليل الدوائر بتيارات الميش", "lec": "2. Mesh and Power", "icon": "🔁", "idea": ["<b>الميش</b> = مسار مقفل بسيط ما داخله مسار ثاني (مثل مربع زجاج في نافذة).", "نفترض تيار لكل ميش ↻ مع عقارب الساعة، ونكتب <b>KVL</b> لكل ميش.", "الشكل المختصر: <b>القطر</b> = مجموع مقاومات الميش · <b>خارج القطر</b> = − المقاومة المشتركة · <b>اليمين</b> = البطاريات (+ مع الاتجاه، − ضده).", "التيار في المقاومة المشتركة = تيار ميشك − تيار الجار. والتيار السالب يعني إن الاتجاه الحقيقي عكس المفترض."], "example": {"title": "مثال محلول (المسألة الأولى في الفيديو)", "given": "E1 = 12V (يسار) · R1 = 2Ω · R3 = 4Ω (مشتركة) · R2 = 4Ω · E2 = 4V تعاكس I₂", "steps": ["الميش ١: 6I₁ − 4I₂ = 12", "الميش ٢: −4I₁ + 8I₂ = −4", "من الأولى: I₁ = (12 + 4I₂)/6 ، نعوض في الثانية ⟹ (16/3) I₂ = 4", "I₂ = 0.75 A ، I₁ = 2.5 A", "تيار R3 = I₁ − I₂ = 1.75 A", "تحقق القدرة: E1 تعطي 30W = 12.5 + 12.25 + 2.25 + 3 (شحن E2) ✓"]}, "grade": [["كتابة معادلات الميشات صح (الإشارات)", 2], ["حل المعادلات", 2], ["تيار الفرع / تحقق القدرة", 1]], "practice": {"q": "دائرة بميشين: E1 = 10V في الميش الأول، R1 = 2Ω، R2 = 2Ω، والمقاومة المشتركة R3 = 2Ω، وE2 = 2V في الميش الثاني تعاكس I₂. أوجد I₁ و I₂ وتيار R3.", "a": ["الميش ١: 4I₁ − 2I₂ = 10", "الميش ٢: −2I₁ + 4I₂ = −2", "I₁ = (10 + 2I₂)/4 ⟹ −5 − I₂ + 4I₂ = −2 ⟹ I₂ = 1 A", "I₁ = 3 A ، تيار R3 = 3 − 1 = 2 A"]}, "chapters": [{"t": 0.0, "title": "وش هو الميش؟"}, {"t": 30.1, "title": "خطوات الطريقة"}, {"t": 61.8, "title": "سر المقاومة المشتركة"}, {"t": 91.9, "title": "الطريقة المختصرة: المصفوفة"}, {"t": 121.8, "title": "المسألة الأولى: ميشين"}, {"t": 170.5, "title": "حل المسألة الأولى"}, {"t": 207.7, "title": "تحقق القدرة في المسألة الأولى"}, {"t": 244.5, "title": "المسألة الثانية: ثلاث ميشات"}, {"t": 292.6, "title": "حل المسألة الثانية بالتعويض"}, {"t": 344.5, "title": "وش يعني التيار السالب؟"}, {"t": 380.3, "title": "تحقق القدرة في المسألة الثانية"}, {"t": 414.5, "title": "أخطاء شائعة وخلاصة"}], "dur": 446}, {"slug": "energy", "title": "الملفات والمكثفات — الطاقة المخزنة", "lec": "Lec 10 Energy-Storage Elements", "icon": "🔋", "idea": ["الملف يخزن الطاقة في <b>مجال مغناطيسي</b>: <span dir='ltr'>E = ½ L I²</span> (L بالهنري).", "المكثف يخزن الطاقة في <b>مجال كهربائي</b>: <span dir='ltr'>E = ½ C V²</span> (C بالفاراد).", "<b>الملفات مثل المقاومات</b>: توالي = جمع · توازي = جمع المقلوبات.", "<b>المكثفات بالعكس</b>: توازي = جمع · توالي = جمع المقلوبات. لعنصرين: <span dir='ltr'>(X·Y)/(X+Y)</span>.", "الحالة المستقرة (DC): الملف = سلك (قصر) · المكثف = دائرة مفتوحة.", "⚠️ حوّل m إلى ×10⁻³ قبل حساب الطاقة."], "example": {"title": "Example 1 من المحاضرة — ملفات", "given": "مصدر 30A · 10mH أعلى يسار · 60mH في الوسط · 10mH أعلى يمين · 20mH يمين", "steps": ["10 + 20 = 30 mH (توالي)", "30 ∥ 60 = (30×60)/90 = 20 mH", "L<sub>eq</sub> = 20 + 10 = 30 mH", "E = ½ × 30×10⁻³ × 30² = 13.5 J"], "extra": {"title": "Example 2 من المحاضرة — مكثفات", "steps": ["6 + 3 + 1 = 10 mF (توازي = جمع)", "10 · 10 · 10 على التوالي: 10∥10 = 5 ، 5∥10 = 3.33 mF", "C<sub>eq</sub> = 3.33 mF", "لو V = 30V (تدريب): E = ½ × 3.33×10⁻³ × 900 ≈ 1.5 J"]}}, "grade": [["تحديد التوالي والتوازي", 1], ["الاختصار خطوة خطوة لعنصر واحد", 2], ["قانون الطاقة", 1], ["الجواب بالوحدة", 1]], "practice": {"q": "مكثف 6µF على التوالي مع مجموعة (4µF ∥ 8µF)، والجهد الكلي 100V. أوجد C<sub>eq</sub> والطاقة المخزنة.", "a": ["4 + 8 = 12 µF (توازي)", "6 مع 12 توالي: (6×12)/18 = 4 µF", "E = ½ × 4×10⁻⁶ × 100² = 0.02 J"]}, "chapters": [], "dur": 0, "soon": true}, {"slug": "ac", "title": "التيار المتردد — قراءة الموجة", "lec": "Lec 11 AC", "icon": "〰️", "idea": ["<b>Peak</b>: أعلى قيمة توصلها الموجة.", "<b>T</b> الزمن الدوري: زمن دورة كاملة قبل ما تكرر نفسها.", "<b>f = 1/T</b> بالهيرتز · <b>ω = 2πf = 2π/T</b> بالراديان/ثانية.", "<b>Average</b> = المساحة تحت المنحنى ÷ الزمن. الموجة المتماثلة (موجب = سالب) متوسطها في دورة كاملة = 0، فنحسبه على نص دورة.", "الموجة الجيبية: <span dir='ltr'>v = V<sub>m</sub> sin(ωt)</span> · <span dir='ltr'>V<sub>rms</sub> = V<sub>m</sub>/√2</span>."], "example": {"title": "Example 3 من المحاضرة — موجة شبه منحرف", "given": "تطلع من 0 إلى 10A بين 0 و1، ثابتة حتى 2، تنزل للصفر عند 3، ثم نفس الشكل سالب حتى 6", "steps": ["Peak = 10 A", "T = 6 s", "f = 1/6 ≈ 0.16 Hz", "ω = 2π/6 ≈ 1.05 rad/s", "المتوسط في دورة كاملة = 0 (تماثل)", "على نص دورة: (½×1×10×2 + 1×10)/3 = 20/3 = 6.67 A"], "extra": {"title": "Example 4 من المحاضرة — سن المنشار", "steps": ["Peak = 10 A · T = 2 s", "f = 0.5 Hz · ω = π ≈ 3.14 rad/s", "Average = (½×2×10)/2 = 5 A"]}}, "grade": [["Peak", 1], ["T", 1], ["f", 1], ["ω", 1], ["Average بطريقة المساحة", 1]], "practice": {"q": "موجة تيار مثلثية موجبة: تطلع من 0 إلى 8A خلال ثانيتين، وتنزل للصفر عند 4 ثواني، وتتكرر. أوجد Peak و T و f و ω والمتوسط.", "a": ["Peak = 8 A · T = 4 s", "f = 1/4 = 0.25 Hz", "ω = 2π × 0.25 = π/2 ≈ 1.57 rad/s", "Average = (½ × 4 × 8)/4 = 4 A"]}, "chapters": [], "dur": 0, "soon": true}, {"slug": "thevenin", "title": "نظرية ثيفنن", "lec": "Lec 7 Thevenin Theorem", "icon": "🎯", "idea": ["أي شبكة خطية من جهة الحمل = <b>مصدر جهد E<sub>th</sub></b> على التوالي مع <b>مقاومة R<sub>th</sub></b>.", "<b>R<sub>th</sub></b>: شيل الحمل، مصدر الجهد ← سلك (s.c.)، مصدر التيار ← مفتوح (o.c.)، ثم المقاومة المكافئة بين a و b.", "<b>E<sub>th</sub></b>: الجهد بين a و b وهي مفتوحة (مقسم جهد · عقد · ميش).", "تيار الحمل: <span dir='ltr'>I<sub>L</sub> = E<sub>th</sub> / (R<sub>th</sub> + R<sub>L</sub>)</span>.", "المقاومة اللي توصل لطرف مفتوح ما يمر فيها تيار، فما عليها فرق جهد."], "example": {"title": "Example 1 من المحاضرة", "given": "10V · 2Ω أعلى · 3Ω نازلة · 4Ω للنقطة a · حمل 5Ω", "steps": ["R<sub>th</sub> = 4 + (2∥3) = 4 + 1.2 = 5.2 Ω", "لا تيار في 4Ω ⟹ V<sub>th</sub> = جهد الـ 3Ω", "V<sub>th</sub> = 10 × 3/(3+2) = 6 V", "I = 6/(5.2 + 5) = 0.59 A"], "extra": {"title": "Example 2 من المحاضرة — فيه مصدر تيار", "steps": ["R<sub>th</sub> = 4 + (5∥20) = 4 + 4 = 8 Ω", "عقدة: (V1 − 25)/5 + V1/20 − 3 = 0", "5V1 = 160 ⟹ V1 = 32 V", "V<sub>th</sub> = 32 V · R<sub>th</sub> = 8 Ω"]}}, "grade": [["R<sub>th</sub> مع رسمة تصفير المصادر", 2], ["E<sub>th</sub>", 2], ["رسم المكافئ وحساب تيار الحمل", 1]], "practice": {"q": "E = 24V مع R1 = 6Ω على التوالي، ثم R2 = 3Ω نازلة، ثم R3 = 2Ω للنقطة a. أوجد مكافئ ثيفنن والتيار في حمل 4Ω.", "a": ["R<sub>th</sub> = 2 + (6∥3) = 2 + 2 = 4 Ω", "V<sub>th</sub> = 24 × 3/9 = 8 V", "I<sub>L</sub> = 8/(4 + 4) = 1 A ، P = 1² × 4 = 4 W"]}, "chapters": [], "dur": 0, "soon": true}];
+const PYLAB = "https://morede99-source.github.io/python-lab/";
+const $ = s => document.querySelector(s);
+const app = $("#app");
+function bd(s) {
+  return s.replace(/[^\u0600-\u06FF،؛]+/g, m => {
+    if (!/[0-9A-Za-zΩπω√]/.test(m)) return m;
+    let pre = "", post = "", core = m;
+    const lead = core.match(/^[\s):·،.]+/); if (lead) { pre = lead[0]; core = core.slice(pre.length); }
+    const tail = core.match(/[\s(:·،]+$/); if (tail) { post = tail[0]; core = core.slice(0, -post.length); }
+    const o = (core.match(/\(/g) || []).length, c = (core.match(/\)/g) || []).length;
+    if (c > o && core.endsWith(")")) { core = core.slice(0, -1); post = ")" + post; }
+    return pre + `<bdi dir="ltr">${core}</bdi>` + post;
+  });
+}
+const fmt = t => { t = Math.round(t); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
+
+function home() {
+  document.title = "منصة الشروحات — Murad Alzaaq";
+  app.innerHTML = `
+  <section class="hero"><h1>شروحات المواد <span>بالصوت والصورة</span></h1>
+  <p>كل موضوع: فيديو مشروح خطوة خطوة، ملخص القواعد، أمثلة محلولة من المحاضرات، توزيع الدرجات، وسؤال تدريب بحلّه.</p></section>
+  <h2 class="sec">المواد</h2>
+  <div class="grid">
+    <a class="card" href="#/circuits"><span class="glow" style="background:#FFD43B"></span><span class="ic">⚡</span><h3>الدوائر الكهربائية</h3>
+      <p>Mesh · L/C والطاقة · AC · Thevenin</p><div class="meta"><span class="chip y">EE201</span><span class="chip">${TOPICS.length} مواضيع</span></div></a>
+    <a class="card" href="${PYLAB}" target="_blank" rel="noopener"><span class="glow" style="background:#4DABF7"></span><span class="ic">🐍</span><h3>مختبر بايثون</h3>
+      <p>40 درس من الأساسيات إلى الأمن السيبراني مع تشغيل حقيقي للكود</p><div class="meta"><span class="chip g">Python</span><span class="chip">↗ يفتح المختبر</span></div></a>
+    <div class="card soon"><span class="ic">➕</span><h3>مواد جاية</h3><p>قريباً تنضاف مواد ثانية</p></div>
+  </div>`;
+}
+
+function circuits() {
+  document.title = "الدوائر الكهربائية — منصة الشروحات";
+  app.innerHTML = `<div class="crumbs"><a href="#/">الرئيسية</a> ‹ <span>الدوائر الكهربائية</span></div>
+  <section class="hero"><h1>⚡ الدوائر <span>الكهربائية</span></h1><p>مواضيع مختارة بنفس حلول الدكتور، كل موضوع عليه مسألة (5 درجات).</p></section>
+  <div class="grid">${TOPICS.map((t, i) => `
+    <a class="card" href="#/circuits/${t.slug}">
+      <span class="glow" style="background:${["#FFD43B", "#4DABF7", "#3DDC97", "#B197FC"][i % 4]}"></span>
+      <span class="ic">${t.icon}</span><h3>${t.title}</h3><p>${t.idea[0].replace(/<[^>]+>/g, "")}</p>
+      <div class="meta"><span class="chip y">${t.lec}</span>${t.dur ? `<span class="chip">▶ ${fmt(t.dur)}</span>` : `<span class="chip">🎬 الفيديو قريباً</span>`}<span class="chip g">5 درجات</span></div></a>`).join("")}
+  </div>`;
+}
+
+function topic(slug) {
+  const t = TOPICS.find(x => x.slug === slug);
+  if (!t) return circuits();
+  document.title = t.title + " — منصة الشروحات";
+  const ex = t.example, tot = t.grade.reduce((a, g) => a + g[1], 0);
+  app.innerHTML = `<div class="crumbs"><a href="#/">الرئيسية</a> ‹ <a href="#/circuits">الدوائر الكهربائية</a> ‹ <span>${t.title}</span></div>
+  <h1 style="font-size:clamp(22px,3.4vw,34px);margin-bottom:14px">${t.icon} ${t.title}</h1>
+  ${t.dur ? "" : `<div class="panel" style="margin-top:0;text-align:center;padding:40px 20px"><div style="font-size:44px">🎬</div><h3 style="justify-content:center">الفيديو المشروح قيد التجهيز</h3><p style="color:var(--mut)">الشرح المكتوب والأمثلة المحلولة جاهزة تحت 👇</p></div>`}
+  <div class="tp" style="${t.dur ? "" : "display:none"}">
+    <div class="player"><video id="vid" controls playsinline preload="metadata" ${t.dur ? `src="video/${t.slug}.mp4"` : ""}></video></div>
+    <div class="chap"><h4>فصول الفيديو</h4>${t.chapters.map((c, i) => `<button data-t="${c.t}"><span class="n">${i + 1}</span><span>${c.title}</span><span class="tm">${fmt(c.t)}</span></button>`).join("")}</div>
+  </div>
+  <div class="panel"><h3>📌 الفكرة والقواعد</h3><ul>${t.idea.map(x => `<li>${x}</li>`).join("")}</ul><div class="src">المصدر: محاضرة ${t.lec}</div></div>
+  <div class="two">
+    <div class="panel"><h3>✍️ ${ex.title}</h3>${ex.given ? `<div class="given">${bd(ex.given)}</div>` : ""}<ol class="steps">${ex.steps.map(s => `<li>${bd(s)}</li>`).join("")}</ol></div>
+    ${ex.extra ? `<div class="panel"><h3>✍️ ${ex.extra.title}</h3><ol class="steps">${ex.extra.steps.map(s => `<li>${bd(s)}</li>`).join("")}</ol></div>` : ""}
+  </div>
+  <div class="two">
+    <div class="panel"><h3>🎯 توزيع الدرجات (متوقع)</h3><table class="gt">${t.grade.map(g => `<tr><td>${g[0]}</td><td>${g[1]}</td></tr>`).join("")}<tfoot><tr><td>المجموع</td><td>${tot}</td></tr></tfoot></table></div>
+    <div class="panel"><h3>🧪 سؤال تدريب</h3><div class="q">${bd(t.practice.q)}</div><button class="reveal" id="rv">اعرض الحل</button>
+      <div class="ans" id="ans"><ol class="steps">${t.practice.a.map(s => `<li>${bd(s)}</li>`).join("")}</ol></div></div>
+  </div>`;
+  if (!t.dur) { $("#rv").onclick = () => { const a = $("#ans"); a.classList.toggle("on"); $("#rv").textContent = a.classList.contains("on") ? "إخفاء الحل" : "اعرض الحل"; }; return; }
+  const v = $("#vid"), bs = [...document.querySelectorAll(".chap button")];
+  bs.forEach(b => b.onclick = () => { v.currentTime = +b.dataset.t + 0.05; v.play(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+  v.ontimeupdate = () => { let k = 0; t.chapters.forEach((c, i) => { if (v.currentTime >= c.t) k = i; }); bs.forEach((b, i) => b.classList.toggle("on", i === k)); };
+  $("#rv").onclick = () => { const a = $("#ans"); a.classList.toggle("on"); $("#rv").textContent = a.classList.contains("on") ? "إخفاء الحل" : "اعرض الحل"; };
+}
+
+function route() {
+  const h = location.hash.replace(/^#\/?/, "").split("/");
+  if (h[0] === "circuits" && h[1]) topic(h[1]); else if (h[0] === "circuits") circuits(); else home();
+  window.scrollTo(0, 0);
+}
+addEventListener("hashchange", route); route();
+
+function toast(m) { const t = $("#toast"); t.textContent = m; t.classList.add("on"); setTimeout(() => t.classList.remove("on"), 2200); }
+$("#shareBtn").onclick = async () => {
+  const url = location.href;
+  try { if (navigator.share) { await navigator.share({ title: document.title, url }); return; } } catch (e) { return; }
+  try { await navigator.clipboard.writeText(url); toast("تم نسخ الرابط ✓"); } catch (e) { prompt("انسخ الرابط:", url); }
+};
+</script>
+</body>
+</html>
